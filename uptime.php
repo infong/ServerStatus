@@ -36,9 +36,9 @@ $memmath = $memcache + $memfree;
 $memmath2 = $memmath / $memtotal * 100;
 $memory = round($memmath2) . '%';
 
-if ($memory >= "51%") { $memlevel = "success"; }
-elseif ($memory <= "50%") { $memlevel = "warning"; }
-elseif ($memory <= "35%") { $memlevel = "danger"; }
+if ($memory >= "76%") { $memlevel = "danger"; }
+elseif ($memory <= "50%") { $memlevel = "success"; }
+elseif ($memory <= "75%") { $memlevel = "warning"; }
 
 $array['memory'] = '<div class="progress progress-striped active">
 <div class="bar bar-'.$memlevel.'" style="width: '.$memory.';">'.$memory.'</div>
@@ -49,9 +49,9 @@ $hddfree = disk_free_space("/");
 $hddmath = $hddfree / $hddtotal * 100;
 $hdd = round($hddmath) . '%';
 
-if ($hdd >= "51%") { $hddlevel = "success"; }
-elseif ($hdd <= "50%") { $hddlevel = "warning"; }
-elseif ($hdd <= "35%") { $hddlevel = "danger"; }
+if ($hdd >= "76%") { $hddlevel = "danger"; }
+elseif ($hdd <= "50%") { $hddlevel = "success"; }
+elseif ($hdd <= "75%") { $hddlevel = "warning"; }
 
 
 $array['hdd'] = '<div class="progress progress-striped active">
