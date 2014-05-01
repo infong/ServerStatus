@@ -14,7 +14,6 @@ fclose($fh);
 $uptime = explode('.', $uptime, 2);
 $array['uptime'] = sec2human($uptime[0]);
 
-
 $fh = fopen('/proc/meminfo', 'r');
   $mem = 0;
   while ($line = fgets($fh)) {
@@ -33,7 +32,7 @@ $fh = fopen('/proc/meminfo', 'r');
 fclose($fh);
 
 $memmath = $memcache + $memfree;
-$memmath2 = $memmath / $memtotal * 100;
+$memmath2 = 100 - $memmath / $memtotal * 100;
 $memory = round($memmath2) . '%';
 
 if ($memory >= "76%") { $memlevel = "danger"; }
@@ -46,7 +45,7 @@ $array['memory'] = '<div class="progress progress-striped active">
 
 $hddtotal = disk_total_space("/");
 $hddfree = disk_free_space("/");
-$hddmath = $hddfree / $hddtotal * 100;
+$hddmath = 100 - $hddfree / $hddtotal * 100;
 $hdd = round($hddmath) . '%';
 
 if ($hdd >= "76%") { $hddlevel = "danger"; }
