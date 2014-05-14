@@ -3,20 +3,12 @@ include('./includes/config.php');
 global $sJavascript, $sTable;
 
 $query = mysql_query("SELECT * FROM servers ORDER BY id") or die(mysql_error());
-	$sJavascript .= '<script type="text/javascript">
-		function uptime() {
-			$(function() {';
+$servers = array();
 while($result = mysql_fetch_array($query)){
-	$sJavascript .= '$.getJSON("pull/index.php?url='.$result["id"].'",function(result){
-	$("#online'.$result["id"].'").html(result.online);
-	$("#uptime'.$result["id"].'").html(result.uptime);
-	$("#load'.$result["id"].'").html(result.load);
-	$("#memory'.$result["id"].'").html(result.memory);
-	$("#hdd'.$result["id"].'").html(result.hdd);
-	});';
+	$servers[$result["id"]] = 'online' . $result["id"];
 	$sTable .= '
 		<tr>
-			<td id="online'.$result["id"].'">
+			<td id="online'.$result["id"].'" class="status">
 				<div class="progress">
 					<div class="bar bar-danger" style="width: 100%;"><small>Down</small></div>
 				</div>
@@ -40,12 +32,8 @@ while($result = mysql_fetch_array($query)){
 		</tr>
 	';
 }
-	$sJavascript .= '});
-	}
-	uptime();
-	setInterval(uptime, '.$sSetting['refresh'].');
-	</script>';
 
+$refresh = $sSetting['refresh'];
 include($index);
 
 ?>
