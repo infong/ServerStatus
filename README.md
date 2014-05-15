@@ -21,7 +21,7 @@ Installation
 
 1. Create a database with a user.
 2. Import the servers.sql file in in the /sql/ folder, to populate the database.
-3. Configure /includes/config.php with the database and user information.
+3. Configure /config.php with the database and user information.
 4. Copy uptime.php to any server you want to monitor. This needs to be publicly accessible.
 5. Insert an entry into the database.
   * name - The name of your server.
