@@ -2,6 +2,7 @@
 
 return array(
   'database' => array(
+    //'conn' => 'sqlite:servers.db',
     'conn' => 'mysql:host=localhost;dbname=status',
     'user' => 'root',
     'pass' => 'longer',

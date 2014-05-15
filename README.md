@@ -20,7 +20,7 @@ Installation
 ============
 
 1. Create a database with a user.
-2. Import the servers.sql file in in the /sql/ folder, to populate the database.
+2. Import the servers.sql file in in the /sql/ folder, to populate the database. Or just use sqlite file in /sql/servers.template.db
 3. Configure /config.php with the database and user information.
 4. Copy uptime.php to any server you want to monitor. This needs to be publicly accessible.
 5. Insert an entry into the database.
@@ -41,3 +41,4 @@ Requirements
 * PHP5 + PHP5_CURL
 * Web Server (lighttpd, apache2, nginx, etc.)
 * mySQL server unless you choose to use a remote mySQL server.
+* SQLite driver if you use a sqlite database.
